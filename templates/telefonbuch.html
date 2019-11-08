@@ -7,89 +7,98 @@
 
 <div class="container">
 
-    <div class="row">
 
-        <div class="col-12 mb-3">
-            <h1>Find your love</h1>
-        </div></div>
+	<!-- Seitentitel -->
 
+	   <div class="row">
 
-
-
-
-   <h4>Bitte Kontaktdaten eingeben</h4>
+	        <div class="bd-title col-12 mb-3">
+	            <h1>Find your love</h1>
+	        </div></div>
 
 
-	<div class="form-row">
+	<form method="POST">
 
-	    <div class="form-group col-md-6">
-	      <label for="input">Vorname</label>
-	      <input type="Vorname" class="form-control" placeholder="Vorname"> </div>
-	    <div class="form-group col-md-6">
-	      <label for="input">Nachname</label>
-	      <input type="Nachname" class="form-control" placeholder="Nachname"> </div>
-	    <div class="form-group col-md-6">
-	      <label for="inputEmail4">Email</label>
-	      <input type="email" class="form-control" id="inputEmail4" placeholder="Email"> </div>
-	    <div class="form-group col-md-6">
-	      <label for="input">Telefonnummer</label>
-	      <input type="input" class="form-control" placeholder="Telefonnummer"> </div>
-	</div>
+		 <!-- Kontaktdaten -->
 
+		   <h4>Bitte Kontaktdaten eingeben</h4>
 
-   <h4>Bitte Geburtsdaten eingeben</h4>
+			<div class="form-row">
 
-<div class="container-fluid"></div>
+			    <div class="form-group col-md-6">
+			      <label for="inputVorname">Vorname</label>
+			      <input type="Vorname" class="form-control" placeholder="Vorname"> </div>
 
-	<div class="form-row">
+			    <div class="form-group col-md-6">
+			      <label for="inputNachname">Nachname</label>
+			      <input type="nachname" class="form-control" placeholder="Nachname"> </div>
 
-	    <div class="form-group col-md-3">
-		    <label for="input">Tag</label>
-		    <input type="text" class="form-control" placeholder="TT"></div>
-		<div class="form-group col-md-3">
-		    <label for="input">Monat</label>
-		    <input type="text" class="form-control" placeholder="MM"> </div>
-		<div class="form-group col-md-3">
-		    <label for="input">Jahr</label>
-		    <input type="text" class="form-control" placeholder="JJJJ"> </div>
-	</div>
+			    <div class="form-group col-md-6">
+			      <label for="inputEmail">Email</label>
+			      <input type="email" class="form-control" id="inputEmail4" placeholder="Email"> </div>
+
+			    <div class="form-group col-md-6">
+			      <label for="inputTel">Telefonnummer</label>
+			      <input type="input" class="form-control" placeholder="Telefonnummer"> </div>
+			  </div> 
 
 
-	<div class="form-row"> 
+			<!-- Geburtsdaten -->
 
-		<div class="form-group col-md-3">
-		    <label for="input">Stunde</label>
-		    <input type="text" class="form-control" placeholder="HH"> </div>
-		<div class="form-group col-md-3">
-		    <label for="input">Minute</label>
-		    <input type="text" class="form-control" placeholder="MM"> </div>  
- 		<div class="form-group col-md-3">
- 			<label for="input">Geburtsort</label>
-		<input type="text" class="form-control" placeholder="Stadt"> </div>
+		   <h4>Bitte Geburtsdaten eingeben</h4>
 
-	</div>
+			<div class="form-row">
 
+			    <div class="form-group col-md-3">
+				    <label for="inputTag">Tag</label>
+				    <input type="text" class="form-control" placeholder="TT"></div>
 
-	<div class="form-row"> 
+				<div class="form-group col-md-3">
+				    <label for="inputTag">Monat</label>
+				    <input type="text" class="form-control" placeholder="MM"> </div>
 
-		  <div class="form-group">
-		    <label for="exampleFormControlFile1">Example file input</label>
-		    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-		  </div>
-</form>
+				<div class="form-group col-md-3">
+				    <label for="inputTag">Jahr</label>
+				    <input type="text" class="form-control" placeholder="JJJJ"> </div> </div> 
 
-	</div>
+				<div class="form-row"> 
 
+				<div class="form-group col-md-3">
+				    <label for="inputStunde">Stunde</label>
+				    <input type="text" class="form-control" placeholder="HH"> </div>
 
-  <button type="submit" class="btn btn-primary">Sign in</button>
-
-</form>
-
-
-
-    </div>
+				<div class="form-group col-md-3">
+				    <label for="inputMinute">Minute</label>
+				    <input type="text" class="form-control" placeholder="MM"> </div>  
+		 		<div class="form-group col-md-3">
+		 			<label for="inputGeb">Geburtsort</label>
+				<input type="text" class="form-control" placeholder="Stadt"> </div> </div> 
 
 
+			<!-- Portrait hochladen -->
+
+			<div class="form-row"> 
+
+				  <div class="form-group">
+				    <label for="exampleFormControlFile1">Portrait hochladen</label>
+				    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+				  </div> </div> 
+
+
+			<!-- Submit -->
+			
+			<div class="form-row">
+		  		<button type="submit" class="btn btn-primary">Los geht's!</button>
+		  	</div>
+
+	</form>
+
+	{% if error %}
+    	{{ error }}
+    {% endif %}
+
+
+</div>
 
 
 
