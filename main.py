@@ -4,7 +4,7 @@ from flask import redirect
 from flask import request
 from flask import url_for
 
-from libs import telefonbuch
+from libs import horosdate
 
 app = Flask("Telefonbuch")
 
