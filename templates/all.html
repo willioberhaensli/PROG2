@@ -10,11 +10,21 @@
 
 	<!-- Seitentitel -->
 
-	   <div class="row">
+	<div class="row">
 
 	        <div class="bd-title col-12 mb-3">
 	            <h1>All Lovers</h1>
 	        </div></div>
+
+
+	<!-- Klassenkameraden eingetragen -->
+
+	<form method="GET">
+		
+
+
+
+	</form>
 
 
 
@@ -23,3 +33,38 @@
 
 
 {% endblock %}
+
+
+<!----
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 mb-3">
+            <h1>Personen</h1>
+            <hr>
+        </div>
+        {% if prod %}
+
+                <div class="container">
+                  <div class="row">
+            {% for key, value in prod.items() %}
+                    <div class="col">                        
+                        <h6>{{ key }}</h6>
+                        <p>Geschlecht: {{ value ["geschlecht"] }}</p>
+                        <p>Alter: {{ value ["alter"] }}</p>
+                        <p>Grösse: {{ value ["groesse"] }}</p>
+                        <p>Gewicht: {{ value ["gewicht"] }}</p>
+                        <p>Aktivitätslevel: {{ value ["aktivitaet"] }}</p>
+                        <p>Ziel: {{ value ["ziel"] }}</p>
+                        <p>Trainingseinheiten pro Woche: {{ value ["training"] }}</p>
+                    </div>
+            {% endfor %}
+            
+                  </div>
+                </div>
+        {% else %}
+                <h3>Keine Einträge vorhanden</h3>
+        {% endif %}
+    </div>
+</div>
