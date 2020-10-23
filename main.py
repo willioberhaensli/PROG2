@@ -1,8 +1,6 @@
 from flask import Flask
 from flask import render_template
-from flask import redirect
 from flask import request
-from flask import url_for
 
 from libs import horosdate
 
@@ -14,8 +12,8 @@ app = Flask("Horosdate")
 def index():
     if request.method == 'POST':
         eintrag_speichern_von_formular = request.form['vorname']
-        rückgabe_string = "Hallo " + eintrag_speichern_von_formular + " herzlichen Dank fürs teilnehmen. Du wirst über deinen Sternenverwandten informiert, sobald sich alle deine Klassenkameraden eingetragen haben."
-        return rückgabe_string
+        rueckgabe_string = "Hallo " + eintrag_speichern_von_formular + " herzlichen Dank fürs teilnehmen. Du wirst über deinen Sternenverwandten informiert, sobald sich alle deine Klassenkameraden eingetragen haben."
+        return rueckgabe_string
 
     return render_template("horosdate.html")
 
