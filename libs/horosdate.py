@@ -1,14 +1,17 @@
 import json
+from libs import data
 
 
 
 def eintrag_speichern(vorname, nachname, email, telefon, tag, monat, jahr, stunde, minute, stadt):
-    daterliste = klassenkamaraden_lesen()
-    daterliste[name] = {"vorname": vorname, "nachname": nachname, "email": email, "telefon": telefonnummer, "tag": geburtstag, "monat": geburtsmonat, "jahr": geburtsjahr, "stunde": stunde, "minute": minute, "stadt": geburtsort}   
-    print(daterliste)
-    with open('klassenkamaraden.txt', "w", encoding="utf-8") as open_file:
-        json.dump(daterliste, open_file)
+    json_daten = data.load_json()
+    alle_personen = json_daten.get('personen', {})
+    person = {"vorname": vorname, "nachname": nachname, "email": email, "telefon": telefon, "tag": tag, "monat": monat, "jahr": jahr, "stunde": stunde, "minute": minute, "stadt": stadt}
+    alle_personen['person'][vorname] = person
+    json_daten["personen"] = alle_personen
 
+    data.save_to_json(json_daten)
+    return json_daten
 
 
 def klassenkamaraden_lesen():
@@ -26,7 +29,7 @@ def eintrag_speichern_von_formular(form_request):
     vorname = form_request.get('nachname')
     nachname = form_request.get('vorname')
     email = form_request.get('email')
-    telefonnummer = form_request.get('telefon')
+    telefon = form_request.get('telefon')
     geburtstag = form_request.get('tag')
     geburtsmonat = form_request.get('monat')
     geburtsjahr = form_request.get('jahr')

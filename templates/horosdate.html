@@ -17,7 +17,10 @@
 	        </div></div>
 
 
-	<form method="POST">
+
+<div>  
+
+	<form class="new_entry" method="POST">
 
 		 <!-- Kontaktdaten -->
 
@@ -27,19 +30,19 @@
 
 			    <div class="form-group col-md-6">
 			      <label for="inputVorname">Vorname</label>
-			      <input type="vorname" class="form-control" placeholder="Vorname"> </div>
+			      <input type="vorname" name="vorname" class="form-control" placeholder="Vorname"> </div>
 
 			    <div class="form-group col-md-6">
 			      <label for="inputNachname">Nachname</label>
-			      <input type="nachname" class="form-control" placeholder="Nachname"> </div>
+			      <input type="nachname" name="nachname" class="form-control" placeholder="Nachname"> </div>
 
 			    <div class="form-group col-md-6">
 			      <label for="inputEmail">Email</label>
-			      <input type="email" class="form-control" id="inputEmail4" placeholder="Email"> </div>
+			      <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email"> </div>
 
 			    <div class="form-group col-md-6">
 			      <label for="inputTel">Telefonnummer</label>
-			      <input type="telefon" class="form-control" placeholder="Telefonnummer"> </div>
+			      <input type="telefon" name="telefon" class="form-control" placeholder="Telefonnummer"> </div>
 			</div> 
 
 
@@ -51,73 +54,42 @@
 
 			    <div class="form-group col-md-3">
 				    <label for="inputTag">Tag</label>
-				    <input type="tag" class="form-control" placeholder="TT"></div>
+				    <input type="tag" name="tag"class="form-control" placeholder="TT"></div>
 
 				<div class="form-group col-md-3">
 				    <label for="inputTag">Monat</label>
-				    <input type="monat" class="form-control" placeholder="MM"> </div>
+				    <input type="monat" name="monat" class="form-control" placeholder="MM"> </div>
 
 				<div class="form-group col-md-3">
 				    <label for="inputTag">Jahr</label>
-				    <input type="jahr" class="form-control" placeholder="JJJJ"> </div> </div> 
+				    <input type="jahr" name="jahr" class="form-control" placeholder="JJJJ"> </div> </div> 
 
 				<div class="form-row"> 
 
 				<div class="form-group col-md-3">
 				    <label for="inputStunde">Stunde</label>
-				    <input type="stunde" class="form-control" placeholder="HH"> </div>
+				    <input type="stunde" name="stunde" class="form-control" placeholder="HH"> </div>
 
 				<div class="form-group col-md-3">
 				    <label for="inputMinute">Minute</label>
-				    <input type="minute" class="form-control" placeholder="MM"> </div>  
+				    <input type="minute" name="minute" class="form-control" placeholder="MM"> </div>  
 		 		<div class="form-group col-md-3">
 		 			<label for="inputGeb">Geburtsort</label>
-				<input type="stadt" class="form-control" placeholder="Stadt"> </div> </div> 
-
-
-			<!-- Portrait hochladen -->
-
-			<div class="form-row"> 
-
-				  <div class="form-group">
-				    <label for="exampleFormControlFile1">Portrait hochladen</label>
-				    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-				  </div> </div> 
+				<input type="stadt" name="stadt" class="form-control" placeholder="Stadt"> </div> </div> 
 
 
 			<!-- Submit -->
 
 			<div class="form-row">
-		  		<button type="submit" class="btn btn-primary">Los geht's!</button>
+		  		<input type="submit" value="Los gehts" class="btn btn-primary">
+
 		  	</div>
 
 
+		</form>
 
-			<!-- Test Karte -->
+	</div>
 
-			<div class="form-row">
-				<div class="col-md-6">
-				<div class="card">
-				  <img src="Testbild.jpg" class="card-img-top" alt="Testbild">
-				  <div class="card-body">
-				    <h5 class="card-title">Vorname Nachname</h5>
-				  </div>
-				  <ul class="list-group list-group-flush">
-				    <li class="list-group-item">Cras justo odio</li>
-				    <li class="list-group-item">Dapibus ac facilisis in</li>
-				    <li class="list-group-item">Vestibulum at eros</li>
-				  </ul>
-				  <div class="card-body">
-				    <a href="#" class="card-link">Card link</a>
-				    <a href="#" class="card-link">Another link</a>
-				  </div>
-				</div>
-				</div>
-			 </div>
-
-
-
-	</form>
 
 	{% if error %}
     	{{ error }}
