@@ -32,6 +32,7 @@ def index():
 
 
 @app.route("/search/<name>")
+
 @app.route("/search", methods=['GET', 'POST'])
 def search(name=None):
     return "search"
@@ -39,7 +40,8 @@ def search(name=None):
 
 @app.route("/all")
 def add():
-    return render_template("all.html")
+    testvariable = "test"
+    return render_template("all.html", testvariable=testvariable)
 
 
 if __name__ == "__main__":
