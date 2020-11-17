@@ -20,7 +20,10 @@
 	<!-- Auflistung in Tabelle aus JSON -->
 
 	<form method="GET">
-        		
+
+        	
+                <!-- Inspriation: https://github.com/welschmichel/PROGR2/blob/master/templates/output.html -->
+	
         <table class="table table-striped">
           <thead>
             <tr>
@@ -32,11 +35,15 @@
             </tr>
           </thead>
           <tbody>
+            {% for person in data %}
             <tr>
               <th scope="row">1</th>
-              <td>{{testvariable}}</td>      
+              <td>{{person}}</td>   
 
-    <!-- Testvariable eingefügt bei main -->
+    <!-- Testvariable eingefügt bei main
+
+              <th scope="row">1</th>
+              <td>{{testvariable}}</td>      
 
               <td>{{nachname}}</td>
               <td>{{emai}}</td>
@@ -55,7 +62,12 @@
               <td>{{nachname}}</td>
               <td>{{emai}}</td>
               <td>{{telefon}}</td>
+
+-->
+
             </tr>
+            {% endfor %}
+            
           </tbody>
         </table>
 

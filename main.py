@@ -41,7 +41,9 @@ def search(name=None):
 @app.route("/all")
 def add():
     testvariable = "test"
-    return render_template("all.html", testvariable=testvariable)
+    personen_data = data.load_json()
+    print(personen_data)
+    return render_template("all.html", testvariable=testvariable, data=personen_data)
 
 
 if __name__ == "__main__":
