@@ -17,26 +17,47 @@
 	        </div></div>
 
 
-	<!-- Klassenkameraden eingetragen -->
+	<!-- Auflistung in Tabelle aus JSON -->
 
 	<form method="GET">
         		
-        <div class="card" style="width: 18rem;">
-          <img src="grey.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{testvariable}}</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-          </div>
-        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Vorname</th>
+              <th scope="col">Nachname</th>
+              <th scope="col">Mail</th>
+              <th scope="col">Telefon</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>{{testvariable}}</td>      
+
+    <!-- Testvariable eingefügt bei main -->
+
+              <td>{{nachname}}</td>
+              <td>{{emai}}</td>
+              <td>{{telefon}}</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>{{vorname}}</td>
+              <td>{{nachname}}</td>
+              <td>{{emai}}</td>
+              <td>{{telefon}}</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>{{vorname}}</td>
+              <td>{{nachname}}</td>
+              <td>{{emai}}</td>
+              <td>{{telefon}}</td>
+            </tr>
+          </tbody>
+        </table>
 
 
 	</form>
