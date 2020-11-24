@@ -1,0 +1,35 @@
+{% extends "template.html" %}
+
+{% block title %}Horosdate{% endblock %}
+{% block main %}
+
+
+<body>
+
+{%if daten%}
+<table>
+        <tr>
+            <th>Vorname</th>
+            <th>hal</th>
+            <th>Ort</th>
+            <th>When</th>
+            <th>Time</th>
+        </tr>
+
+
+      {% for person in daten['personen'].values()%}
+        {% for person in person.values() %}
+        <tr>
+            <td>{{person['vorname']}}</td> 
+            <td>{{person['vorname']}}</td>
+            <td>{{person['vorname']}}</td>
+            <td>{{person['vorname']}}</td>
+            <td>{{person['vorname']}}</td>
+        </tr>
+      {% endfor %}
+      {% endfor %}
+{% endif %}
+</table>
+</body>
+
+{% endblock %}

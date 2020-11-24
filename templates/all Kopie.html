@@ -8,28 +8,29 @@
 <div class="container">
 
 
-    <!-- Seitentitel -->
+	<!-- Seitentitel -->
 
-    <div class="row">
+	<div class="row">
 
-            <div class="bd-title col-12 mb-3">
-                <h1>All Lovers</h1>
-            </div></div>
+	        <div class="bd-title col-12 mb-3">
+	            <h1>All Lovers</h1>
+	        </div></div>
 
 
 
-    <!-- Auflistung in Tabelle aus JSON -->
+	<!-- Auflistung in Tabelle aus JSON -->
 
-    <form method="GET">
+	<form method="GET">
 
-            
+        	
                 <!-- Inspriation: https://github.com/welschmichel/PROGR2/blob/master/templates/output.html -->
 
         {%if daten%}
-    
+	
         <table class="table table-striped">
           <thead>
             <tr>
+              <th scope="col">#</th>
               <th scope="col">Vorname</th>
               <th scope="col">Nachname</th>
               <th scope="col">Mail</th>
@@ -43,6 +44,7 @@
             {% for person in person.values() %}
 
             <tr>
+              <th scope="row">1</th>
               <td>{{person['vorname']}}</td> 
               <td>{{person['nachname']}}</td>
               <td>{{person['mail']}}</td>
@@ -58,7 +60,7 @@
         {% endif %}
 
 
-    </form>
+	</form>
 
 
 
