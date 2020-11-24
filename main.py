@@ -27,7 +27,8 @@ def index():
         rückgabe_string = "Hallo " + vorname + " herzlichen Dank fürs teilnehmen. Du wirst über deinen Sternenverwandten informiert, sobald sich alle deine Klassenkameraden eingetragen haben."
         returned_data = horosdate.eintrag_speichern(vorname, nachname, email, telefon, tag, monat, jahr, stunde, minute, stadt)
         return rückgabe_string
-    return render_template("horosdate.html")
+    else:
+        return render_template("horosdate.html")
 
 @app.route("/search/<name>")
 @app.route("/search", methods=['GET', 'POST'])
