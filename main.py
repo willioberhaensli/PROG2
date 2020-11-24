@@ -24,7 +24,9 @@ def index():
     	stadt = request.form['stadt']
     	stunde = request.form['stunde']
     	minute = request.form['minute']
+    	rückgabe_string = "Hallo " + vorname + nachname + " Herzlichen Dank fürs teilnehmen, du wirst informiert sobald alle deine Klassenkammeraden sich eingetragen haben."
     	returned_data = horosdate.eintrag_speichern(vorname, nachname, email, telefon, tag, monat, jahr, stunde, minute, stadt)
+    	return rückgabe_string
 
     return render_template("horosdate.html")
 

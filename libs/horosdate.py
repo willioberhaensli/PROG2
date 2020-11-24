@@ -13,27 +13,6 @@ def eintrag_speichern(vorname, nachname, email, telefon, tag, monat, jahr, stund
     data.save_to_json(json_daten)
     return json_daten
 
-"""
-
-def eintrag_speichern():
-  data = []
-  with open('data.json', 'r') as f:
-     data = json.load(f)
-     f.close()
-  print data
-
-    p = {}
-  for item in recipes:
-     if item['name'] == "pumpkin pie":
-       print item
-       p = item
-       print p
-
-  return render_template('horosdate.html')
-
-"""
-
-
 
 def klassenkamaraden_lesen():
     data = {}
@@ -68,3 +47,4 @@ def person_suchen(form_request):
         return {vorname: daterliste[name]}
 
     
+
