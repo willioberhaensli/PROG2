@@ -7,7 +7,7 @@ def eintrag_speichern(vorname, nachname, email, telefon, tag, monat, jahr, stund
     json_daten = data.load_json()
     alle_personen = json_daten.get('personen', {})
     person = {"vorname": vorname, "nachname": nachname, "email": email, "telefon": telefon, "tag": tag, "monat": monat, "jahr": jahr, "stunde": stunde, "minute": minute, "stadt": stadt}
-    alle_personen['person'][vorname] = person
+    alle_personen['person'][email] = person
     json_daten["personen"] = alle_personen
 
     data.save_to_json(json_daten)
