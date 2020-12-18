@@ -4,7 +4,7 @@ from flask import redirect
 from flask import request
 from flask import url_for
 
-from libs import horosdate, data
+from libs import horosdate, data, destiny
 
 app = Flask("Horosdate")
 
@@ -33,7 +33,8 @@ def index():
 @app.route("/search/<name>")
 @app.route("/search", methods=['GET', 'POST'])
 def search(name=None):
-    return "search"
+    person_daten = data.load_json()
+    return render_template("destiny.html", daten=person_daten)
 
 
 @app.route("/all")
