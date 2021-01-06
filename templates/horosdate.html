@@ -14,35 +14,33 @@
 
 	        <div class="bd-title col-12 mb-3">
 	            <h1>Find your love</h1>
-	        </div></div>
+	        </div>
+	    </div>
 
-
-
-<div>  
-
-	<form class="new_entry" novalidate method="POST">
+	<div>  
+		<form class="new_entry" method="POST">
 
 		 <!-- Kontaktdaten -->
-
 		   <h4>Bitte Kontaktdaten eingeben</h4>
-
-
-
 			    <div class="form-group col-md-6">
 			      <label for="inputVorname"> Vorname</label>
-			      <input type="vorname" name="vorname" class="form-control" placeholder="Vorname"> </div>
+			      <input type="vorname" name="vorname" class="form-control" placeholder="Vorname" required>
+			  </div>
 
 			    <div class="form-group col-md-6">
 			      <label for="inputNachname">Nachname</label>
-			      <input type="nachname" name="nachname" class="form-control" placeholder="Nachname"> </div>
+			      <input type="nachname" name="nachname" class="form-control" placeholder="Nachname" required>
+			  </div>
 
 			    <div class="form-group col-md-6">
 			      <label for="inputEmail">Email</label>
-			      <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email"> </div>
+			      <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email" required>
+			  </div>
 
 			    <div class="form-group col-md-6">
 			      <label for="inputTel">Telefonnummer</label>
-			      <input type="telefon" name="telefon" class="form-control" placeholder="Telefonnummer"> </div>
+			      <input type="telefon" name="telefon" class="form-control" placeholder="Telefonnummer" required>
+			  </div>
 			</div> 
 
 
@@ -54,37 +52,43 @@
 
 			    <div class="form-group col-md-3">
 				    <label for="inputTag">Tag</label>
-				    <input type="tag" name="tag"class="form-control" placeholder="TT"></div>
+				    <input type="tag" name="tag" class="form-control" placeholder="TT" required>
+				</div>
 
 				<div class="form-group col-md-3">
 				    <label for="inputTag">Monat</label>
-				    <input type="monat" name="monat" class="form-control" placeholder="MM"> </div>
+				    <input type="monat" name="monat" class="form-control" placeholder="MM" required>
+				</div>
 
 				<div class="form-group col-md-3">
 				    <label for="inputTag">Jahr</label>
-				    <input type="jahr" name="jahr" class="form-control" placeholder="JJJJ"> </div> </div> 
+				    <input type="jahr" name="jahr" class="form-control" placeholder="JJJJ" required>
+				</div>
+			</div> 
 
-				<div class="form-row"> 
+			<div class="form-row"> 
 
 				<div class="form-group col-md-3">
 				    <label for="inputStunde">Stunde</label>
-				    <input type="stunde" name="stunde" class="form-control" placeholder="HH"> </div>
+				    <input type="stunde" name="stunde" class="form-control" placeholder="HH">
+				</div>
 
 				<div class="form-group col-md-3">
 				    <label for="inputMinute">Minute</label>
-				    <input type="minute" name="minute" class="form-control" placeholder="MM"> </div>  
+				    <input type="minute" name="minute" class="form-control" placeholder="MM">
+				</div>  
 		 		<div class="form-group col-md-3">
 		 			<label for="inputGeb">Geburtsort</label>
-				<input type="stadt" name="stadt" class="form-control" placeholder="Stadt"> </div> </div> 
+					<input type="stadt" name="stadt" class="form-control" placeholder="Stadt">
+				</div>
+			</div> 
 
 
 			<!-- Submit -->
 
 			<div class="form-row">
 		  		<input type="submit" value="Los gehts" class="btn btn-primary">
-
 		  	</div>
-
 
 		</form>
 
