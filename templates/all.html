@@ -10,21 +10,17 @@
 
     <!-- Seitentitel -->
 
-    <div class="row">
+  <div class="row">
 
-            <div class="bd-title col-12 mb-3">
-                <h1>All Lovers</h1>
-            </div></div>
+      <div class="bd-title col-12 mb-3">
+          <h1>All Lovers</h1>
+      </div></div>
 
 
 
     <!-- Auflistung in Tabelle aus JSON -->
 
     <form method="GET">
-
-            
-                <!-- Inspriation: https://github.com/welschmichel/PROGR2/blob/master/templates/output.html -->
-
         {%if daten%}
     
         <table class="table table-striped">
@@ -32,8 +28,10 @@
             <tr>
               <th scope="col">Vorname</th>
               <th scope="col">Nachname</th>
-              <th scope="col">Mail</th>
-              <th scope="col">Telefon</th>
+              <th scope="col">Tag</th>
+              <th scope="col">Monat</th>
+              <th scope="col">Jahr</th>
+              <th></th>
             </tr>
           </thead>
 
@@ -45,73 +43,22 @@
             <tr>
               <td>{{person['vorname']}}</td> 
               <td>{{person['nachname']}}</td>
-              <td>{{person['email']}}</td>
-              <td>{{person['telefon']}}</td>
+              <td>{{person['tag']}}</td>
+              <td>{{person['monat']}}</td>
+              <td>{{person['jahr']}}</td>
+              <td><a href="{{ url_for('search', email=person['email']) }}" class="btn btn-primary">Zu den Matches</a></td>
             </tr>
             
             {% endfor %}
-            {% endfor %}
+          {% endfor %}
             
           </tbody>
         </table>
 
         {% endif %}
-
-
     </form>
 
-
-
 </div>
-
 
 
 {% endblock %}
-
-
-<!----
-
-
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-12 mb-3">
-            <h1>Personen</h1>
-            <hr>
-        </div>
-        {% if prod %}
-
-                <div class="container">
-                  <div class="row">
-            {% for key, value in prod.items() %}
-                    <div class="col">                        
-                        <h6>{{ key }}</h6> >>>KEY IST ID
-                        <p>Geschlecht: {{ value ["geschlecht"] }}</p>
-                        <p>Alter: {{ value ["alter"] }}</p>
-                        <p>Grösse: {{ value ["groesse"] }}</p>
-                        <p>Gewicht: {{ value ["gewicht"] }}</p>
-                        <p>Aktivitätslevel: {{ value ["aktivitaet"] }}</p>
-                        <p>Ziel: {{ value ["ziel"] }}</p>
-                        <p>Trainingseinheiten pro Woche: {{ value ["training"] }}</p>
-                        href="url_for("static, "bilder/{{key}}.jpg")" >>>> Wichtig!!!
-                    </div>
-            {% endfor %}
-            
-                  </div>
-                </div>
-        {% else %}
-                <h3>Keine Einträge vorhanden</h3>
-        {% endif %}
-    </div>
-</div>
-
-
-
-
-–––– PROG –––
-
-1. Person/Bild ID #Nummer zuweisen
-2. Bild zwischen und Person herstellen
-3. Key = Emailadresse (@ durch at erstetzen, Punkt entfernen)
-
->>> Hart coden!!!!!
-

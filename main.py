@@ -31,9 +31,10 @@ def index():
         return render_template("horosdate.html")
 
 
-@app.route("/search/<name>")
+@app.route("/search/<email>")
 @app.route("/search", methods=['GET', 'POST'])
-def search(name=None):
+def search(email=None):
+    print(email)
     person_daten = data.load_json()
     return render_template("destiny.html", daten=person_daten)
 

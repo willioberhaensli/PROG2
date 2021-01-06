@@ -2,6 +2,19 @@ import json
 from libs import data
 
 
+def eintrag_speichern_von_formular(form_request):
+    vorname = form_request.get('nachname')
+    nachname = form_request.get('vorname')
+    email = form_request.get('email')
+    telefon = form_request.get('telefon')
+    geburtstag = form_request.get('tag')
+    geburtsmonat = form_request.get('monat')
+    geburtsjahr = form_request.get('jahr')
+    stunde = form_request.get('stunde')
+    minute = form_request.get('minute')
+    geburtsort = form_request.get('stadt')
+    eintrag_speichern(vorname, nachname, email, telefon, tag, monat, jahr, stunde, minute, stadt)
+
 
 def eintrag_speichern(vorname, nachname, email, telefon, tag, monat, jahr, stunde, minute, stadt):
     json_daten = data.load_json()
@@ -24,19 +37,7 @@ def eintrag_speichern(vorname, nachname, email, telefon, tag, monat, jahr, stund
     finally:
         return data'''
 
-def eintrag_speichern_von_formular(form_request):
-    print(form_request)
-    vorname = form_request.get('nachname')
-    nachname = form_request.get('vorname')
-    email = form_request.get('email')
-    telefon = form_request.get('telefon')
-    geburtstag = form_request.get('tag')
-    geburtsmonat = form_request.get('monat')
-    geburtsjahr = form_request.get('jahr')
-    stunde = form_request.get('stunde')
-    minute = form_request.get('minute')
-    geburtsort = form_request.get('stadt')
-    eintrag_speichern(vorname, nachname, email, telefon, tag, monat, jahr, stunde, minute, stadt)
+
 
 '''
 def person_suchen(form_request):
