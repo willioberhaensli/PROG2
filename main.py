@@ -30,6 +30,7 @@ def index():
     else:
         return render_template("horosdate.html")
 
+
 @app.route("/search/<name>")
 @app.route("/search", methods=['GET', 'POST'])
 def search(name=None):
