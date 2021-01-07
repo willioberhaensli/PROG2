@@ -18,44 +18,60 @@
       </div></div>
 
 
+      <!-- falls gerade eine neue eingabe gemacht, entsprechende anzeige -->
+
+
 
     <!-- Auflistung in Tabelle aus JSON -->
 
-    <form method="GET">
-        {%if daten%}
-    
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Vorname</th>
-              <th scope="col">Nachname</th>
-              <th scope="col">Tag</th>
-              <th scope="col">Monat</th>
-              <th scope="col">Jahr</th>
-              <th></th>
-            </tr>
-          </thead>
+        {% if daten['personen']['person'] %}
+          {% if neue_person %}
+            <p>
+              Hallo {{ neue_person['vorname'] }}! <br>
+              <a href="{{ url_for('search', email=neue_person['email']) }}">Hier</a> geht's zu deinen Matches.<br><br>
+            </p>
+          {% endif %}
 
-          <tbody>
+          <p>Hier findest du alle eingetragenen Personen und kannst ihre Matches auslesen:</p>
+          <form method="GET">
+          
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Vorname</th>
+                    <th scope="col">Nachname</th>
+                    <th scope="col">Tag</th>
+                    <th scope="col">Monat</th>
+                    <th scope="col">Jahr</th>
+                    <th></th>
+                  </tr>
+                </thead>
 
-          {% for person in daten['personen'].values()%}
-            {% for person in person.values() %}
-              <tr>
-                <td>{{person['vorname']}}</td> 
-                <td>{{person['nachname']}}</td>
-                <td>{{person['tag']}}</td>
-                <td>{{person['monat']}}</td>
-                <td>{{person['jahr']}}</td>
-                <td><a href="{{ url_for('search', email=person['email']) }}" class="btn btn-primary">Zu den Matches</a></td>
-              </tr>
-            {% endfor %}
-          {% endfor %}
-            
-          </tbody>
-        </table>
+                <tbody>
+
+                {% for person in daten['personen'].values()%}
+                  {% for person in person.values() %}
+                    <tr>
+                      <td>{{person['vorname']}}</td> 
+                      <td>{{person['nachname']}}</td>
+                      <td>{{person['tag']}}</td>
+                      <td>{{person['monat']}}</td>
+                      <td>{{person['jahr']}}</td>
+                      <td><a href="{{ url_for('search', email=person['email']) }}" class="btn btn-primary">Zu den Matches</a></td>
+                    </tr>
+                  {% endfor %}
+                {% endfor %}
+                  
+                </tbody>
+              </table>
+
+          </form>
+
+        {% else %}
+
+        <p>Keine Daten vorhanden! - Bitte zuerst <a href="{{ url_for('index') }}">Personen erfassen</a>.</p>
 
         {% endif %}
-    </form>
 
 </div>
 

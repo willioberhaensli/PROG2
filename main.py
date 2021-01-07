@@ -26,12 +26,14 @@ def index():
         stadt = request.form['stadt']
         rückgabe_string = "Hallo " + vorname + " herzlichen Dank fürs teilnehmen. Du wirst über deinen Sternenverwandten informiert, sobald sich alle deine Klassenkameraden eingetragen haben."
         returned_data = horosdate.eintrag_speichern(vorname, nachname, email, telefon, tag, monat, jahr, stunde, minute, stadt)
-        return rückgabe_string
+
+        return redirect(url_for('all', email=email))
     else:
         return render_template("horosdate.html")
 
 
-@app.route("/search", methods=['GET', 'POST'])
+@app.route("/search")
+@app.route("/search/")
 @app.route("/search/<email>", methods=['GET', 'POST'])
 def search(email=None):
     print(email)
@@ -40,9 +42,17 @@ def search(email=None):
 
 
 @app.route("/all")
-def add():
+@app.route("/all/")
+@app.route("/all/<email>", methods=['GET', 'POST'])
+def all(email=None):
     person_daten = data.load_json()
-    return render_template("all.html", daten=person_daten)
+    if email:
+        neue_person_daten = person_daten['personen']['person'][email]
+        print(neue_person_daten)
+    else:
+        neue_person_daten = None
+
+    return render_template("all.html", daten=person_daten, neue_person=neue_person_daten)
 
 
 @app.route("/clear_database")
