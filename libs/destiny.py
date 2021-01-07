@@ -1,8 +1,7 @@
 import json
 from libs import data
-def matching():
 
-    
+def matching():
     try:
         #Json-File öffnen/lesen
         with open('data/data.json') as open_file:

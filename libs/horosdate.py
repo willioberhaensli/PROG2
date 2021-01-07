@@ -1,7 +1,6 @@
 import json
 from libs import data
 
-
 def eintrag_speichern_von_formular(form_request):
     vorname = form_request.get('nachname')
     nachname = form_request.get('vorname')
@@ -25,25 +24,3 @@ def eintrag_speichern(vorname, nachname, email, telefon, tag, monat, jahr, stund
 
     data.save_to_json(json_daten)
     return json_daten
-
-
-'''def klassenkamaraden_lesen():
-    data = {}
-    try:
-        with open('klassenkamaraden.txt', "r") as open_file:
-            data = json.load(open_file)
-    except:
-        print("Error with file!")
-    finally:
-        return data'''
-
-
-
-'''
-def person_suchen(form_request):
-    daterliste = klassenkamaraden_lesen()
-    name = form_request.get('vorname')
-
-    if vorname in daterliste:
-        return {vorname: daterliste[name]}
-'''

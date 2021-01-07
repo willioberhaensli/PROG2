@@ -14,6 +14,7 @@
 
       <div class="bd-title col-12 mb-3">
           <h1>All Lovers</h1>
+          <a href="{{ url_for('clear_database') }}" class="btn btn-danger">clear database</a>
       </div></div>
 
 
@@ -39,16 +40,14 @@
 
           {% for person in daten['personen'].values()%}
             {% for person in person.values() %}
-
-            <tr>
-              <td>{{person['vorname']}}</td> 
-              <td>{{person['nachname']}}</td>
-              <td>{{person['tag']}}</td>
-              <td>{{person['monat']}}</td>
-              <td>{{person['jahr']}}</td>
-              <td><a href="{{ url_for('search', email=person['email']) }}" class="btn btn-primary">Zu den Matches</a></td>
-            </tr>
-            
+              <tr>
+                <td>{{person['vorname']}}</td> 
+                <td>{{person['nachname']}}</td>
+                <td>{{person['tag']}}</td>
+                <td>{{person['monat']}}</td>
+                <td>{{person['jahr']}}</td>
+                <td><a href="{{ url_for('search', email=person['email']) }}" class="btn btn-primary">Zu den Matches</a></td>
+              </tr>
             {% endfor %}
           {% endfor %}
             

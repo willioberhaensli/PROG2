@@ -31,8 +31,8 @@ def index():
         return render_template("horosdate.html")
 
 
-@app.route("/search/<email>")
 @app.route("/search", methods=['GET', 'POST'])
+@app.route("/search/<email>", methods=['GET', 'POST'])
 def search(email=None):
     print(email)
     person_daten = data.load_json()
@@ -43,6 +43,14 @@ def search(email=None):
 def add():
     person_daten = data.load_json()
     return render_template("all.html", daten=person_daten)
+
+
+@app.route("/clear_database")
+def clear_database():
+    data.clear_json()
+    person_daten = data.load_json()
+    return render_template("all.html", daten=person_daten)
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
