@@ -13,10 +13,10 @@
                 <a class="nav-link {% if request.path == '/' or request.path == '/index' %}active{% endif %}" href="{{ url_for('index') }}">Find Love</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {% if request.path == '/all' %}active{% endif %}" href="{{ url_for('all') }}">All Lovers</a>
+                <a class="nav-link {% if request.path == '/all' or request.path == '/all/' %}active{% endif %}" href="{{ url_for('all') }}">All Lovers</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {% if request.path == '/search' %}active{% endif %}" href="{{ url_for('search') }}">Your destiny</a>
+                <a class="nav-link {% if request.path == '/search' or request.path == '/search/' %}active{% endif %}" href="{{ url_for('search') }}">Your destiny</a>
             </li>
         </ul>
     </div>

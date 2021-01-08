@@ -7,36 +7,47 @@
 
 <div class="container">
 
-
     <!-- Seitentitel -->
 
     <div class="row">
 
-            <div class="bd-title col-12 mb-3">
-                <h1>Your Destiny</h1>
-            </div></div>
+      <div class="bd-title col-12 mb-3">
+          <h1>Your Destiny</h1>
+      </div>
+    </div>
 
 
 
-    <!-- Auflistung in Tabelle aus JSON -->
+    <p>
+      Gib eine E-Mail Adresse ein, für welche du gerne Matches anzeigen würdest.
+    </p>
+    <form class="form-inline" method="post">
+      <div class="form-group">
+        <input type="email" name="destiny_email" class="form-control" placeholder="Email" value="{% if person_email %} {{ person_email }} {% endif %}" required>
+      </div>
+        <input type="submit" value="Matches anzeigen" class="btn btn-primary">
+    </form>
+    <br><br>
 
-    <form method="GET">    
-        <!-- Inspriation: https://github.com/welschmichel/PROGR2/blob/master/templates/output.html -->
+    {% if person_email %}
 
-        {%if daten%}
-    
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Tag</th>
-              <th scope="col">Monat</th>
-              <th scope="col">Jahr</th>
-              <th scope="col">Stunde</th>
-            </tr>
-          </thead>
+    <!-- Matches für eingegebene E-Mail/Person anzeigen -->
+      {%if daten['personen']['person'][person_email] %}
+      <h2>Matches für <b>{{ daten['personen']['person'][person_email]['vorname'] }} {{ daten['personen']['person'][person_email]['nachname'] }} ({{ person_email }})</b></h2>
+      <p>
+        Die Matches werden anhand Sternzeichen, genauem Alter, etc. gemacht.
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Tag</th>
+            <th scope="col">Monat</th>
+            <th scope="col">Jahr</th>
+            <th scope="col">Stunde</th>
+          </tr>
+        </thead>
 
           <tbody>
-
           {% for person in daten['personen'].values()%}
             {% for person in person.values() %}
 
@@ -53,10 +64,14 @@
           </tbody>
         </table>
 
+        {% else %}
+
+        <p>
+          Kein Datensatz zu {{ person_email }} gefunden!
+        </p>
+
         {% endif %}
-
-
-    </form>
+      {% endif %}
 </div>
 
 

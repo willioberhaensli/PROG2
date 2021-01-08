@@ -32,13 +32,16 @@ def index():
         return render_template("horosdate.html")
 
 
-@app.route("/search")
-@app.route("/search/")
+@app.route("/search", methods=['GET', 'POST'])
+@app.route("/search/", methods=['GET', 'POST'])
 @app.route("/search/<email>", methods=['GET', 'POST'])
 def search(email=None):
-    print(email)
+    if request.method == 'POST':
+        destiny_email = request.form['destiny_email']
+        return redirect(url_for('search', email=destiny_email))
+
     person_daten = data.load_json()
-    return render_template("destiny.html", daten=person_daten)
+    return render_template("destiny.html", daten=person_daten, person_email=email)
 
 
 @app.route("/all")
