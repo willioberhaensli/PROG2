@@ -42,15 +42,13 @@ def search(email=None):
         return redirect(url_for('search', email=destiny_email))
 
     try:
-        neue_person_daten = person_daten['personen']['person'][email]
-        
         alle_personen = data.load_json()
         match_daten = destiny.get_matching(email, alle_personen)
 
     except:
         match_daten = None
 
-
+    #match_daten = data.load_json()
     return render_template("destiny.html", daten=match_daten, person_email=email)
 
 

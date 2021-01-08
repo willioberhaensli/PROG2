@@ -1,0 +1,50 @@
+{
+	"sagittarius": {
+		"printable_name": "",
+		"matching_prio": ["capricorn", "aquarius"]
+	},
+	"capricorn": {
+		"printable_name": "",
+		"matching_prio": ["aquarius", "pisces"]
+	},
+	"aquarius": {
+		"printable_name": "",
+		"matching_prio": ["capricorn", "aquarius"]
+	},
+	"pisces": {
+		"printable_name": "",
+		"matching_prio": ["capricorn", "aquarius"]
+	},
+	"aries": {
+		"printable_name": "",
+		"matching_prio": ["capricorn", "aquarius"]
+	},
+	"taurus": {
+		"printable_name": "",
+		"matching_prio": ["capricorn", "aquarius"]
+	},
+	"gemini": {
+		"printable_name": "",
+		"matching_prio": ["capricorn", "aquarius"]
+	},
+	"cancer": {
+		"printable_name": "",
+		"matching_prio": ["capricorn", "aquarius"]
+	},
+	"cancer": {
+		"printable_name": "",
+		"matching_prio": ["capricorn", "aquarius"]
+	},
+	"leo": {
+		"printable_name": "",
+		"matching_prio": ["capricorn", "aquarius"]
+	},
+	"virgo": {
+		"printable_name": "",
+		"matching_prio": ["capricorn", "aquarius"]
+	},
+	"scorpio": {
+		"printable_name": "",
+		"matching_prio": ["capricorn", "aquarius"]
+	}
+}
