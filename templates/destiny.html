@@ -32,44 +32,52 @@
     {% if person_email %}
 
     <!-- Matches für eingegebene E-Mail/Person anzeigen -->
-      {%if daten['personen']['person'][person_email] %}
-      <h2>Matches für <b>{{ daten['personen']['person'][person_email]['vorname'] }} {{ daten['personen']['person'][person_email]['nachname'] }} ({{ person_email }})</b></h2>
-      <p>
-        Die Matches werden anhand Sternzeichen, genauem Alter, etc. gemacht.
-      </p>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Tag</th>
-            <th scope="col">Monat</th>
-            <th scope="col">Jahr</th>
-            <th scope="col">Stunde</th>
-          </tr>
-        </thead>
-
-          <tbody>
-          {% for person in daten['personen'].values()%}
-            {% for person in person.values() %}
-
+      {% if daten %}
+        {%if daten['personen']['person'][person_email] %}
+        <h2>Matches für <b>{{ daten['personen']['person'][person_email]['vorname'] }} {{ daten['personen']['person'][person_email]['nachname'] }} ({{ person_email }})</b></h2>
+        <p>
+          Die Matches werden anhand Sternzeichen, genauem Alter, etc. gemacht.
+        </p>
+        <table class="table table-striped">
+          <thead>
             <tr>
-              <td>{{person['tag']}}</td> 
-              <td>{{person['monat']}}</td>
-              <td>{{person['jahr']}}</td>
-              <td>{{person['stunde']}}</td>
+              <th scope="col">Tag</th>
+              <th scope="col">Monat</th>
+              <th scope="col">Jahr</th>
+              <th scope="col">Stunde</th>
             </tr>
-            
-            {% endfor %}
-          {% endfor %}
-            
-          </tbody>
-        </table>
+          </thead>
 
+            <tbody>
+            {% for person in daten['personen'].values()%}
+              {% for person in person.values() %}
+
+              <tr>
+                <td>{{person['tag']}}</td> 
+                <td>{{person['monat']}}</td>
+                <td>{{person['jahr']}}</td>
+                <td>{{person['stunde']}}</td>
+              </tr>
+              
+              {% endfor %}
+            {% endfor %}
+              
+            </tbody>
+          </table>
+
+          {% else %}
+
+          <p>
+            Kein Datensatz zu {{ person_email }} gefunden!
+          </p>
+
+          {% endif %}
+        
         {% else %}
 
         <p>
           Kein Datensatz zu {{ person_email }} gefunden!
         </p>
-
         {% endif %}
       {% endif %}
 </div>

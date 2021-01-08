@@ -1,6 +1,10 @@
 import json
 from libs import data
 
+def get_matching():
+    return None
+
+'''
 def matching():
     try:
         #Json-File öffnen/lesen
@@ -16,7 +20,9 @@ def matching():
 
 
     return json_daten
-
+'''
+'''
 def save_to_json(daten):
     with open('data/data.json', "w", encoding="utf-8") as open_file:
         json.dump(daten, open_file)
+'''

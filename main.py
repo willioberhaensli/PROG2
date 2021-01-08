@@ -32,6 +32,7 @@ def index():
         return render_template("horosdate.html")
 
 
+
 @app.route("/search", methods=['GET', 'POST'])
 @app.route("/search/", methods=['GET', 'POST'])
 @app.route("/search/<email>", methods=['GET', 'POST'])
@@ -40,8 +41,18 @@ def search(email=None):
         destiny_email = request.form['destiny_email']
         return redirect(url_for('search', email=destiny_email))
 
-    person_daten = data.load_json()
-    return render_template("destiny.html", daten=person_daten, person_email=email)
+    try:
+        neue_person_daten = person_daten['personen']['person'][email]
+        
+        alle_personen = data.load_json()
+        match_daten = destiny.get_matching(email, alle_personen)
+
+    except:
+        match_daten = None
+
+
+    return render_template("destiny.html", daten=match_daten, person_email=email)
+
 
 
 @app.route("/all")
@@ -60,15 +71,18 @@ def all(email=None):
     return render_template("all.html", daten=person_daten, neue_person=neue_person_daten)
 
 
+
 @app.route("/clear_database")
 def clear_database():
     data.clear_json()
     person_daten = data.load_json()
     return render_template("all.html", daten=person_daten)
 
+
 @app.errorhandler(404)
 def page_not_found(e):
     return redirect(url_for('index'))
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
