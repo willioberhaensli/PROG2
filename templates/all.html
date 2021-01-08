@@ -27,7 +27,7 @@
         {% if daten['personen']['person'] %}
           {% if neue_person %}
             <p>
-              Hallo {{ neue_person['vorname'] }}! <br>
+              Hallo <b>{{ neue_person['vorname'] }} {{ neue_person['nachname'] }}</b>! <br>
               <a href="{{ url_for('search', email=neue_person['email']) }}">Hier</a> geht's zu deinen Matches.<br><br>
             </p>
           {% endif %}

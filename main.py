@@ -50,8 +50,10 @@ def search(email=None):
 def all(email=None):
     person_daten = data.load_json()
     if email:
-        neue_person_daten = person_daten['personen']['person'][email]
-        print(neue_person_daten)
+        try:
+            neue_person_daten = person_daten['personen']['person'][email]
+        except:
+            neue_person_daten = None
     else:
         neue_person_daten = None
 
@@ -64,6 +66,9 @@ def clear_database():
     person_daten = data.load_json()
     return render_template("all.html", daten=person_daten)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return redirect(url_for('index'))
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
