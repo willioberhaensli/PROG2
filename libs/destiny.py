@@ -9,7 +9,9 @@ def get_matching(email, alle_personen):
     if astro_matching_schema:
         matches = get_matches_from_astro_sign(astro_sign, alle_personen, astro_matching_schema)
         print(matches)
-        
+
+        #weiterverarbeitung wenn mehr als 3 matches?
+        return matches
 
     else:
         return None

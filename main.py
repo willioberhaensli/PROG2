@@ -47,9 +47,10 @@ def search(email=None):
 
     except:
         match_daten = None
+        alle_personen = None
 
     #match_daten = data.load_json()
-    return render_template("destiny.html", daten=match_daten, person_email=email)
+    return render_template("destiny.html", match_emails=match_daten, daten=alle_personen, person_email=email)
 
 
 

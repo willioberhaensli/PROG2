@@ -33,7 +33,7 @@
 
     <!-- Matches für eingegebene E-Mail/Person anzeigen -->
       {% if daten %}
-        {%if daten['personen']['person'][person_email] %}
+        {% if match_emails %}
         <h2>Matches für <b>{{ daten['personen']['person'][person_email]['vorname'] }} {{ daten['personen']['person'][person_email]['nachname'] }} ({{ person_email }})</b></h2>
         <p>
           Die Matches werden anhand Sternzeichen, genauem Alter, etc. gemacht.
@@ -41,26 +41,28 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Tag</th>
-              <th scope="col">Monat</th>
-              <th scope="col">Jahr</th>
-              <th scope="col">Stunde</th>
+              <th scope="col">Vorname</th>
+              <th scope="col">Nachname</th>
+              <th scope="col">Geburtsdatum</th>
+              <th scope="col">Email</th>
+              <th scope="col">Telefon</th>
             </tr>
           </thead>
 
             <tbody>
-            {% for person in daten['personen'].values()%}
-              {% for person in person.values() %}
+            {% for email in match_emails %}
 
               <tr>
-                <td>{{person['tag']}}</td> 
-                <td>{{person['monat']}}</td>
-                <td>{{person['jahr']}}</td>
-                <td>{{person['stunde']}}</td>
+                <td>{{ daten['personen']['person'][email]['vorname'] }}</td>
+                <td>{{ daten['personen']['person'][email]['nachname'] }}</td>
+                <td>{{ daten['personen']['person'][email]['tag'] }}.{{ daten['personen']['person'][email]['monat'] }}.{{ daten['personen']['person'][email]['jahr'] }}</td>
+                <td>{{ daten['personen']['person'][email]['email'] }}</td>
+                <td>{{ daten['personen']['person'][email]['telefon'] }}</td>
               </tr>
-              
-              {% endfor %}
+
             {% endfor %}
+
+
               
             </tbody>
           </table>
@@ -68,7 +70,7 @@
           {% else %}
 
           <p>
-            Kein Datensatz zu {{ person_email }} gefunden!
+            Keine Matches zu {{ person_email }} gefunden!
           </p>
 
           {% endif %}
