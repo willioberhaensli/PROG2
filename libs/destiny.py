@@ -18,8 +18,6 @@ def get_matching(email, alle_personen):
 
 
 
-
-
 def get_matches_from_astro_sign(astro_sign, alle_personen, astro_matching_schema):
     matching_prio = astro_matching_schema[astro_sign]['matching_prio']
     matches = []
@@ -37,9 +35,6 @@ def get_matches_from_astro_sign(astro_sign, alle_personen, astro_matching_schema
             break
 
     return matches
-
-
-
 
 
 
@@ -87,27 +82,3 @@ def load_astro_matching_schema_json():
         json_daten = None
 
     return json_daten
-
-
-'''
-def matching():
-    try:
-        #Json-File öffnen/lesen
-        with open('data/data.json') as open_file:
-            json_daten = json.load(open_file)
-    
-    #wenn data.json noch leer ist
-    except FileNotFoundError:     
-        json_daten = {
-		  "personen": {
-		    "person": {
-		    }}}
-
-
-    return json_daten
-'''
-'''
-def save_to_json(daten):
-    with open('data/data.json', "w", encoding="utf-8") as open_file:
-        json.dump(daten, open_file)
-'''

@@ -4,19 +4,13 @@
 
 {% block main %}
 
-
 <div class="container">
-
-    <!-- Seitentitel -->
-
     <div class="row">
 
       <div class="bd-title col-12 mb-3">
           <h1>Your Destiny</h1>
       </div>
     </div>
-
-
 
     <p>
       Gib eine E-Mail Adresse ein, für welche du gerne Matches anzeigen würdest.
@@ -61,9 +55,6 @@
               </tr>
 
             {% endfor %}
-
-
-              
             </tbody>
           </table>
 
@@ -83,55 +74,4 @@
         {% endif %}
       {% endif %}
 </div>
-
-
-
 {% endblock %}
-
-
-<!----
-
-
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-12 mb-3">
-            <h1>Personen</h1>
-            <hr>
-        </div>
-        {% if prod %}
-
-                <div class="container">
-                  <div class="row">
-            {% for key, value in prod.items() %}
-                    <div class="col">                        
-                        <h6>{{ key }}</h6> >>>KEY IST ID
-                        <p>Geschlecht: {{ value ["geschlecht"] }}</p>
-                        <p>Alter: {{ value ["alter"] }}</p>
-                        <p>Grösse: {{ value ["groesse"] }}</p>
-                        <p>Gewicht: {{ value ["gewicht"] }}</p>
-                        <p>Aktivitätslevel: {{ value ["aktivitaet"] }}</p>
-                        <p>Ziel: {{ value ["ziel"] }}</p>
-                        <p>Trainingseinheiten pro Woche: {{ value ["training"] }}</p>
-                        href="url_for("static, "bilder/{{key}}.jpg")" >>>> Wichtig!!!
-                    </div>
-            {% endfor %}
-            
-                  </div>
-                </div>
-        {% else %}
-                <h3>Keine Einträge vorhanden</h3>
-        {% endif %}
-    </div>
-</div>
-
-
-
-
-–––– PROG –––
-
-1. Person/Bild ID #Nummer zuweisen
-2. Bild zwischen und Person herstellen
-3. Key = Emailadresse (@ durch at erstetzen, Punkt entfernen)
-
->>> Hart coden!!!!!
-
