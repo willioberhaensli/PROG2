@@ -8,10 +8,17 @@ from libs import horosdate, data, destiny
 
 app = Flask("Horosdate")
 
+"""
+Startseite, Index-Startseite
+Inspriration: https://github.com/aliciafaeh/prog2
+"""
 
 @app.route("/", methods=['GET', 'POST'])
 @app.route("/index", methods=['GET', 'POST'])
 def index():
+
+        """ Wenn Formular ausgefüllt, Daten in JSON, Weiterleitung auf All """
+
     if request.method == 'POST':
         print(request.form)
         vorname = request.form['vorname']
@@ -25,41 +32,62 @@ def index():
         minute = request.form['minute']
         stadt = request.form['stadt']
         
-        # Daten in JSON File speichern
+        # Daten in JSON File speichern, Funktion eintrag speichern in horosdate
+
         returned_data = horosdate.eintrag_speichern(vorname, nachname, email, telefon, tag, monat, jahr, stunde, minute, stadt)
 
+        #
+
         return redirect(url_for('all', email=email))
+
+        # Wenn nicht ausgefüllt, Startseite Laden 
+
     else:
         return render_template("horosdate.html")
 
 
+# findlover/destiny page
 
 @app.route("/search", methods=['GET', 'POST'])
 @app.route("/search/", methods=['GET', 'POST'])
 @app.route("/search/<email>", methods=['GET', 'POST'])
 def search(email=None):
+
+    # wenn email ausgefüllt, dann wird auf eigene seite geleitet mit dem eigenen get-parameter
+    # if wenn gerade aufgefüllt, in gleicher session
+
     if request.method == 'POST':
         destiny_email = request.form['destiny_email']
         return redirect(url_for('search', email=destiny_email))
+
+    # versuchen alle daten laden und matching entsprechend der eingegeben mail-adresse (primary-key)
+    # verweis destiny.py
 
     try:
         alle_personen = data.load_json()
         match_daten = destiny.get_matching(email, alle_personen)
 
+
     except:
         match_daten = None
         alle_personen = None
 
-    #match_daten = data.load_json()
+    # match_daten = data.load_json()
+    # destiny wird geladen aus matchprozess
+
     return render_template("destiny.html", match_emails=match_daten, daten=alle_personen, person_email=email)
 
 
+#ALL_ alle eingegeben daten werden angezeigt, falls vorhanden
 
 @app.route("/all")
 @app.route("/all/")
 @app.route("/all/<email>", methods=['GET', 'POST'])
 def all(email=None):
     person_daten = data.load_json()
+
+    #wenn im gleicher session, dann wird begrüssungssatz formuliert
+
     if email:
         try:
             neue_person_daten = person_daten['personen']['person'][email]

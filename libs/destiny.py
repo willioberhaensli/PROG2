@@ -1,16 +1,30 @@
 import json
 from libs import data
 
+# macht matches anhand der person bzw. primary-key
+
 def get_matching(email, alle_personen):
+
+    # alle daten von zu matchender person abrufen
+
     zu_matchende_person = alle_personen['personen']['person'][email]
+
+    # sternzeichen person berechnen mit tag/monat
+
     astro_sign = get_astrological_sign(zu_matchende_person['tag'], zu_matchende_person['monat'])
+
+    # matching schema wird geladen, priorisierung sternzeichen zu sternzeichen
+
     astro_matching_schema = load_astro_matching_schema_json()
 
     if astro_matching_schema:
+
+        # verweis funktion sternzeichen berechnen
+        
         matches = get_matches_from_astro_sign(astro_sign, alle_personen, astro_matching_schema)
         print(matches)
 
-        #weiterverarbeitung wenn mehr als 3 matches?
+        #weiterverarbeitung
         return matches
 
     else:
@@ -18,25 +32,41 @@ def get_matching(email, alle_personen):
 
 
 
+# Alle matches anhand matching_prio ausrechnen
+
 def get_matches_from_astro_sign(astro_sign, alle_personen, astro_matching_schema):
     matching_prio = astro_matching_schema[astro_sign]['matching_prio']
+
+    # liste für matches
+    
     matches = []
 
-    # anhand matching prio durchgehen
+    # Sternzeichen anhand matching prio durchgehen
+
     for single_astro_sign in matching_prio:
-        # für jede prio alle personen durchgehe
+
+        # Alle Personen durchgehen
+
         for person in alle_personen['personen']['person']:
+
             #in separate liste matches speichern wenn match
+            #liste ist am anfang lehr, nur wenn auftrag dann zwischengespeichert
+
             if get_astrological_sign(alle_personen['personen']['person'][person]['tag'], alle_personen['personen']['person'][person]['monat']) == single_astro_sign:
                 matches.append(person)
 
-        # wenn 3 oder mehr matches dann aus loop gehen
+        # wenn 3 oder mehr matches dann aus loop gehen >> nur erste Prio berücksichtigen
+        # falls weniger als 3, dann auch auf 2 prio
+        # wenn nach 1prio mehr als 3, dann wird zweite nicht ausgeführt
+
         if len(matches) >= 3:
             break
 
     return matches
 
 
+# logik sternzeichen berechnen
+# Quelle: https://www.w3resource.com/python-exercises/python-conditional-exercise-38.php
 
 def get_astrological_sign(day, month):
     day = int(day)
