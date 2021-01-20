@@ -14,6 +14,9 @@
 
       <div class="bd-title col-12 mb-3">
           <h1>All Lovers</h1>
+
+          <!-- Button: Alle daten löschen -->
+
           <a href="{{ url_for('clear_database') }}" class="btn btn-danger">clear database</a>
       </div></div>
 
@@ -25,6 +28,9 @@
     <!-- Auflistung in Tabelle aus JSON -->
 
         {% if daten['personen']['person'] %}
+
+            <!-- Wenn neue Person in gleicher Session, dann Begrüssungssatz ausspielen -->
+
           {% if neue_person %}
             <p>
               Hallo <b>{{ neue_person['vorname'] }} {{ neue_person['nachname'] }}</b>! <br>
@@ -49,6 +55,8 @@
 
                 <tbody>
 
+             <!-- Alle personen durchgehen und daten der person auflisten -->
+
                 {% for person in daten['personen'].values()%}
                   {% for person in person.values() %}
                     <tr>
@@ -57,6 +65,9 @@
                       <td>{{person['tag']}}</td>
                       <td>{{person['monat']}}</td>
                       <td>{{person['jahr']}}</td>
+
+                          <!-- Verlinkung zu Matches von Person, Primary für weiterleitung destiny -->
+
                       <td><a href="{{ url_for('search', email=person['email']) }}" class="btn btn-primary">Zu den Matches</a></td>
                     </tr>
                   {% endfor %}
@@ -66,6 +77,8 @@
               </table>
 
           </form>
+
+              <!-- Else: Wenn keine Daten/Pesonen vorhanden -->
 
         {% else %}
 

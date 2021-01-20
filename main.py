@@ -17,7 +17,7 @@ Inspriration: https://github.com/aliciafaeh/prog2
 @app.route("/index", methods=['GET', 'POST'])
 def index():
 
-        """ Wenn Formular ausgefüllt, Daten in JSON, Weiterleitung auf All """
+        # Wenn Formular ausgefüllt, Daten in JSON, Weiterleitung auf All
 
     if request.method == 'POST':
         print(request.form)
@@ -86,26 +86,36 @@ def search(email=None):
 def all(email=None):
     person_daten = data.load_json()
 
-    #wenn im gleicher session, dann wird begrüssungssatz formuliert
+    #wenn im gleicher session, dann wird begrüssungssatz formuliert: Hallo willi oberhänsli! Hier geht's zu deinen Matches.
 
     if email:
         try:
             neue_person_daten = person_daten['personen']['person'][email]
         except:
             neue_person_daten = None
+
+    # keine email im zwischenspeicher, dann kein begrüssungssatz
+
     else:
         neue_person_daten = None
+
+    # ALL aufrufen mit personendaten und NEUER Person
 
     return render_template("all.html", daten=person_daten, neue_person=neue_person_daten)
 
 
+# Button Daten löschen
 
 @app.route("/clear_database")
 def clear_database():
     data.clear_json()
     person_daten = data.load_json()
+
+    # keine daten gefunden, falls keine vorhanden
+
     return render_template("all.html", daten=person_daten)
 
+# wenn z.B. xxx.ch/schnapsistgeil dann auf startseite weitergeleitet und kein 404-page-not-found
 
 @app.errorhandler(404)
 def page_not_found(e):
