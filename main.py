@@ -24,7 +24,8 @@ def index():
         stunde = request.form['stunde']
         minute = request.form['minute']
         stadt = request.form['stadt']
-        rückgabe_string = "Hallo " + vorname + " herzlichen Dank fürs teilnehmen. Du wirst über deinen Sternenverwandten informiert, sobald sich alle deine Klassenkameraden eingetragen haben."
+        
+        # Daten in JSON File speichern
         returned_data = horosdate.eintrag_speichern(vorname, nachname, email, telefon, tag, monat, jahr, stunde, minute, stadt)
 
         return redirect(url_for('all', email=email))
