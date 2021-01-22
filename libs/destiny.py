@@ -24,7 +24,7 @@ def get_matching(email, alle_personen):
         matches = get_matches_from_astro_sign(astro_sign, alle_personen, astro_matching_schema)
         print(matches)
 
-        #weiterverarbeitung
+        # weiterverarbeitung > zurück main
         return matches
 
     else:

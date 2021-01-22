@@ -32,11 +32,11 @@ def index():
         minute = request.form['minute']
         stadt = request.form['stadt']
         
-        # Daten in JSON File speichern, Funktion eintrag speichern in horosdate
+        # Daten in JSON File speichern, Funktion eintrag_speichern in horosdate
 
         returned_data = horosdate.eintrag_speichern(vorname, nachname, email, telefon, tag, monat, jahr, stunde, minute, stadt)
 
-        #
+        # Weiterleitug auf All, primar key mail mitnehmen
 
         return redirect(url_for('all', email=email))
 
